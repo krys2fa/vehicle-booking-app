@@ -20,7 +20,11 @@ const API_URL = 'https://vehicle-booking-api.herokuapp.com/v1/';
 // };
 
 const getVehicles = () => axios.get(`${API_URL}vehicles`, { headers: authHeader() });
+const sampleApi = () => axios.get('https://jsonplaceholder.typicode.com/todos/', {
+  headers: authHeader(),
+});
 
 export default {
   getVehicles,
+  sampleApi,
 };

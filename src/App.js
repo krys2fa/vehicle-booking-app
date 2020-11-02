@@ -54,12 +54,12 @@ const App = () => {
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to="/home" className="nav-link">
+              <a href="/home" className="nav-link">
                 Home
-              </Link>
+              </a>
             </li>
 
-            {showModeratorBoard && (
+            {/* {showModeratorBoard && (
               <li className="nav-item">
                 <Link to="/mod" className="nav-link">
                   Moderator Board
@@ -73,7 +73,7 @@ const App = () => {
                   Admin Board
                 </Link>
               </li>
-            )}
+            )} */}
 
             {currentUser && (
               <li className="nav-item">
@@ -100,15 +100,15 @@ const App = () => {
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to="/login" className="nav-link">
+                <a href="/login" className="nav-link">
                   Login
-                </Link>
+                </a>
               </li>
 
               <li className="nav-item">
-                <Link to="/register" className="nav-link">
+                <a href="/register" className="nav-link">
                   Sign Up
-                </Link>
+                </a>
               </li>
             </div>
           )}

@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 import UserService from '../services/user.service';
 
 const Home = () => {
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState([]);
 
   useEffect(() => {
-    UserService.getPublicContent().then(
+    UserService.sampleApi().then(
       response => {
+        console.log('Home -> response.data', response.data);
         setContent(response.data);
       },
       error => {
@@ -24,7 +25,7 @@ const Home = () => {
   return (
     <div className="container">
       <header className="jumbotron">
-        <h3>{content}</h3>
+        <h3>{content.map(item => item.title)}</h3>
       </header>
     </div>
   );
