@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -18,7 +19,7 @@ import Profile from './components/Profile';
 import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
 
-import { history } from './helpers/history';
+import history from './helpers/history';
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);

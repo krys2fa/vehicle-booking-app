@@ -1,3 +1,7 @@
+/* eslint-disable react/button-has-type */
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable consistent-return */
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,7 +12,7 @@ import { isEmail } from 'validator';
 
 import { register } from '../actions/auth';
 
-const required = (value) => {
+const required = value => {
   if (!value) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -18,7 +22,7 @@ const required = (value) => {
   }
 };
 
-const validEmail = (value) => {
+const validEmail = value => {
   if (!isEmail(value)) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -28,7 +32,7 @@ const validEmail = (value) => {
   }
 };
 
-const vusername = (value) => {
+const vusername = value => {
   if (value.length < 3 || value.length > 20) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -38,7 +42,7 @@ const vusername = (value) => {
   }
 };
 
-const vpassword = (value) => {
+const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
       <div className="alert alert-danger" role="alert">
@@ -57,25 +61,25 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [successful, setSuccessful] = useState(false);
 
-  const { message } = useSelector((state) => state.message);
+  const { message } = useSelector(state => state.message);
   const dispatch = useDispatch();
 
-  const onChangeUsername = (e) => {
+  const onChangeUsername = e => {
     const username = e.target.value;
     setUsername(username);
   };
 
-  const onChangeEmail = (e) => {
+  const onChangeEmail = e => {
     const email = e.target.value;
     setEmail(email);
   };
 
-  const onChangePassword = (e) => {
+  const onChangePassword = e => {
     const password = e.target.value;
     setPassword(password);
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = e => {
     e.preventDefault();
 
     setSuccessful(false);
@@ -153,7 +157,8 @@ const Register = () => {
                 className={
                   successful ? 'alert alert-success' : 'alert alert-danger'
                 }
-                role="alert">
+                role="alert"
+              >
                 {message}
               </div>
             </div>

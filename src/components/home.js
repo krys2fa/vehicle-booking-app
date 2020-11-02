@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 
 import UserService from '../services/user.service';
@@ -7,17 +8,16 @@ const Home = () => {
 
   useEffect(() => {
     UserService.getPublicContent().then(
-      (response) => {
+      response => {
         setContent(response.data);
       },
-      (error) => {
-        const _content =
-          (error.response && error.response.data) ||
-          error.message ||
-          error.toString();
+      error => {
+        const _content = (error.response && error.response.data)
+          || error.message
+          || error.toString();
 
         setContent(_content);
-      }
+      },
     );
   }, []);
 
