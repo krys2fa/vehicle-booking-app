@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
+import Vehicle from './components/Vehicle';
 
 import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
@@ -41,11 +42,10 @@ const App = () => {
             Vehicle Bookings
           </Link>
           <div className="navbar-nav mr-auto">
-
             {user && (
               <li className="nav-item">
                 <Link to="/profile" className="nav-link">
-                  { user.user.username }
+                  {user.user.username}
                 </Link>
               </li>
             )}
@@ -59,6 +59,9 @@ const App = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/vehicle" className="nav-link">
+                  Vehicle
+                </Link>
                 <Link to="/login" className="nav-link" onClick={logOut}>
                   LogOut
                 </Link>
@@ -87,6 +90,7 @@ const App = () => {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/vehicle" component={Vehicle} />
           </Switch>
         </div>
       </div>

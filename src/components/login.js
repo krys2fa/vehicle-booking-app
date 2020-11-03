@@ -57,7 +57,7 @@ const Login = props => {
       dispatch(login(username, password))
         .then(() => {
           props.history.push('/profile');
-          window.location.reload();
+          // window.location.reload();
         })
         .catch(() => {
           setLoading(false);
