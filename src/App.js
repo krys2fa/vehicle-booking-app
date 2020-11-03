@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Router, Switch, Route, Link,
+  BrowserRouter, Router, Switch, Route, Link,
 } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +19,8 @@ import { clearMessage } from './actions/message';
 import history from './helpers/history';
 
 const App = () => {
-  const { user: currentUser } = useSelector(state => state.auth);
+  const { user } = useSelector(state => state.auth);
+  console.log('App -> user', user);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const App = () => {
   };
 
   return (
-    <Router history={history}>
+    <BrowserRouter history={history}>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to="/" className="navbar-brand">
@@ -41,34 +42,34 @@ const App = () => {
           </Link>
           <div className="navbar-nav mr-auto">
 
-            {currentUser && (
+            {user && (
               <li className="nav-item">
-                <Link to="/user" className="nav-link">
-                  User
+                <Link to="/profile" className="nav-link">
+                  { user.user.username }
                 </Link>
               </li>
             )}
           </div>
 
-          {currentUser ? (
+          {user ? (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link to="/profile" className="nav-link">
-                  {currentUser.username}
+                  {user.username}
                 </Link>
               </li>
               <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={logOut}>
+                <Link to="/login" className="nav-link" onClick={logOut}>
                   LogOut
-                </a>
+                </Link>
               </li>
             </div>
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a href="/login" className="nav-link">
+                <Link to="/login" className="nav-link">
                   Login
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
@@ -89,7 +90,7 @@ const App = () => {
           </Switch>
         </div>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 };
 

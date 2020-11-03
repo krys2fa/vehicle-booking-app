@@ -1,20 +1,23 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Profile = () => {
-  const { user: currentUser } = useSelector(state => console.log(state.auth));
+  const { user } = useSelector(state => state.auth);
+  const history = useHistory();
 
-  if (!currentUser) {
-    return <Redirect to="/login" />;
+  console.log('Profile -> user', user);
+
+  if (user === null) {
+    history.push('/login');
   }
 
   return (
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{currentUser.username}</strong>
+          <strong>{user.user.username}</strong>
           {' '}
           Profile
         </h3>
@@ -22,27 +25,27 @@ const Profile = () => {
       <p>
         <strong>Token:</strong>
         {' '}
-        {currentUser.accessToken.substring(0, 20)}
+        {user.token}
         {' '}
         ...
         {' '}
-        {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
+        {/* {user.accessToken.substr(user.accessToken.length - 20)} */}
       </p>
       <p>
         <strong>Id:</strong>
         {' '}
-        {currentUser.id}
+        {user.user.id}
       </p>
-      <p>
+      {/* <p>
         <strong>Email:</strong>
         {' '}
-        {currentUser.email}
-      </p>
-      <strong>Authorities:</strong>
+        {user.email}
+      </p> */}
+      {/* <strong>Authorities:</strong>
       <ul>
-        {currentUser.roles
-          && currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-      </ul>
+        {user.roles
+          && user.roles.map((role, index) => <li key={index}>{role}</li>)}
+      </ul> */}
     </div>
   );
 };
