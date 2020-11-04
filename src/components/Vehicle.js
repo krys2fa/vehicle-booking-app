@@ -72,7 +72,11 @@ const Vehicle = () => {
         {state.loading
           ? 'Loading'
           : state.vehicles.map(vehicle => (
-            <Link key={vehicle.id} to={`vehicle/${vehicle.id}`}>
+            <Link
+              key={vehicle.id}
+              to={`vehicle/${vehicle.id}`}
+              // vehicle={vehicle}
+            >
               <Detail key={vehicle.id} vehicle={vehicle} />
             </Link>
           ))}
