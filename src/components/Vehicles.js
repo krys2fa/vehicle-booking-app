@@ -4,38 +4,13 @@ import { useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Vehicle from './Vehicle';
-
-const initialState = {
-  loading: true,
-  error: '',
-  vehicles: {},
-};
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'FETCH_SUCCESS':
-      return {
-        loading: false,
-        vehicles: action.payload,
-        error: '',
-      };
-
-    case 'FETCH_ERROR':
-      return {
-        laoding: false,
-        vehicles: {},
-        error: 'Something went wrong!',
-      };
-
-    default:
-      return state;
-  }
-};
+import { FETCH_FAIL, FETCH_SUCCESS } from '../actions/types';
+import { initialState, vehiclesReducer } from '../reducers/vehicles';
 
 const Vehicles = () => {
   const { user } = useSelector(state => state.auth);
   const history = useHistory();
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(vehiclesReducer, initialState);
   const apiUrl = 'https://vehicle-booking-api.herokuapp.com/v1/';
 
   useEffect(() => {
@@ -44,11 +19,11 @@ const Vehicles = () => {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       .then(response => {
-        dispatch({ type: 'FETCH_SUCCESS', payload: response.data });
+        dispatch({ type: FETCH_SUCCESS, payload: response.data });
       })
       // eslint-disable-next-line no-unused-vars
       .catch(error => {
-        dispatch({ type: 'FETCH_ERROR' });
+        dispatch({ type: FETCH_FAIL });
       });
   }, []);
 
@@ -67,7 +42,6 @@ const Vehicles = () => {
           Vehicles
         </h3>
       </header>
-
       <div>
         {state.loading
           ? 'Loading'
@@ -75,26 +49,11 @@ const Vehicles = () => {
             <Link
               key={vehicle.id}
               to={`vehicle/${vehicle.id}`}
-              // vehicle={vehicle}
             >
               <Vehicle key={vehicle.id} vehicle={vehicle} />
             </Link>
           ))}
         {state.error ? state.error : null}
-        <p>
-          <strong>Token:</strong>
-          {' '}
-          {/* {user.token} */}
-          {' '}
-          ...
-          {' '}
-          {/* {user.accessToken.substr(user.accessToken.length - 20)} */}
-        </p>
-        <p>
-          <strong>Id:</strong>
-          {' '}
-          {user.user.id}
-        </p>
       </div>
     </div>
   );
