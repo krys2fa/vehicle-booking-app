@@ -13,6 +13,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Vehicle from './components/Vehicle';
+import Detail from './components/Detail';
 
 import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
@@ -91,6 +92,7 @@ const App = () => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/vehicle" component={Vehicle} />
+            <Route path="/vehicle/:id" component={Detail} />
           </Switch>
         </div>
       </div>

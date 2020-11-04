@@ -6,10 +6,20 @@ const Detail = ({
 }) => (
   <div>
     <h1>{ name }</h1>
+    {console.log('name', name)}
 
-    <p>{ model }</p>
-    <p>{ transmission }</p>
-    <p>{ fee }</p>
+    <p>
+      Model:
+      { model }
+    </p>
+    <p>
+      Transmission:
+      { transmission }
+    </p>
+    <p>
+      Fee:
+      { fee }
+    </p>
 
   </div>
 

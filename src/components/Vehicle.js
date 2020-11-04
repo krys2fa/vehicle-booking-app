@@ -1,8 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useReducer, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import Detail from './Detail';
 
 const initialState = {
   loading: true,
@@ -68,23 +69,29 @@ const Vehicle = () => {
       </header>
 
       <div>
-        { state.loading ? 'Loading' : state.vehicles.map(vehicle => vehicle.name)}
-        { state.error ? state.error : null }
+        {state.loading
+          ? 'Loading'
+          : state.vehicles.map(vehicle => (
+            <Link key={vehicle.id} to={`vehicle/${vehicle.id}`}>
+              <Detail key={vehicle.id} vehicle={vehicle} />
+            </Link>
+          ))}
+        {state.error ? state.error : null}
+        <p>
+          <strong>Token:</strong>
+          {' '}
+          {/* {user.token} */}
+          {' '}
+          ...
+          {' '}
+          {/* {user.accessToken.substr(user.accessToken.length - 20)} */}
+        </p>
+        <p>
+          <strong>Id:</strong>
+          {' '}
+          {user.user.id}
+        </p>
       </div>
-      <p>
-        <strong>Token:</strong>
-        {' '}
-        {/* {user.token} */}
-        {' '}
-        ...
-        {' '}
-        {/* {user.accessToken.substr(user.accessToken.length - 20)} */}
-      </p>
-      <p>
-        <strong>Id:</strong>
-        {' '}
-        {user.user.id}
-      </p>
     </div>
   );
 };
