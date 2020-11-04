@@ -9,6 +9,7 @@ import { initialState, vehiclesReducer } from '../reducers/vehicles';
 
 const Vehicles = () => {
   const { user } = useSelector(state => state.auth);
+
   const history = useHistory();
   const [state, dispatch] = useReducer(vehiclesReducer, initialState);
   const apiUrl = 'https://vehicle-booking-api.herokuapp.com/v1/';

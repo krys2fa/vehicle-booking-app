@@ -13,7 +13,7 @@ import Register from './components/Register';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import Vehicles from './components/Vehicles';
-import Vehicle from './components/Vehicle';
+import Details from './components/Details';
 
 import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
@@ -92,7 +92,7 @@ const App = () => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/vehicle" component={Vehicles} />
-            <Route path="/vehicle/:id" component={Vehicle} />
+            <Route path="/vehicle/:id" component={Details} />
           </Switch>
         </div>
       </div>
