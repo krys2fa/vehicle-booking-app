@@ -3,7 +3,6 @@ import React, { useReducer, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import authHeader from '../services/auth-header';
 
 const initialState = {
   loading: true,
@@ -37,7 +36,6 @@ const Vehicle = () => {
   const history = useHistory();
   const [state, dispatch] = useReducer(reducer, initialState);
   const apiUrl = 'https://vehicle-booking-api.herokuapp.com/v1/';
-  console.log(authHeader());
 
   useEffect(() => {
     axios
@@ -59,12 +57,6 @@ const Vehicle = () => {
     history.push('/login');
   }
 
-  // useEffect(() => {
-  //   dispatch(getVehicles())
-  //     .then()
-  //     .catch(error => { console.log(`${error}`); });
-  // }, []);
-
   return (
     <div className="container">
       <header className="jumbotron">
@@ -76,7 +68,7 @@ const Vehicle = () => {
       </header>
 
       <div>
-        { state.loading ? 'Loading' : console.log(state) }
+        { state.loading ? 'Loading' : state.vehicles.map(vehicle => vehicle.name)}
         { state.error ? state.error : null }
       </div>
       <p>
@@ -93,16 +85,6 @@ const Vehicle = () => {
         {' '}
         {user.user.id}
       </p>
-      {/* <p>
-        <strong>Email:</strong>
-        {' '}
-        {user.email}
-      </p> */}
-      {/* <strong>Authorities:</strong>
-      <ul>
-        {user.roles
-          && user.roles.map((role, index) => <li key={index}>{role}</li>)}
-      </ul> */}
     </div>
   );
 };
