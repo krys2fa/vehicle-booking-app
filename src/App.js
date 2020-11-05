@@ -14,6 +14,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import Vehicles from './components/Vehicles';
 import Details from './components/Details';
+import Bookings from './components/Bookings';
 
 import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
@@ -60,6 +61,9 @@ const App = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to="/bookings" className="nav-link">
+                  Bookings
+                </Link>
                 <Link to="/vehicle" className="nav-link">
                   Vehicle
                 </Link>
@@ -92,6 +96,7 @@ const App = () => {
             <Route exact path="/register" component={Register} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/vehicle" component={Vehicles} />
+            <Route exact path="/bookings" component={Bookings} />
             <Route path="/vehicle/:id" component={Details} />
           </Switch>
         </div>
