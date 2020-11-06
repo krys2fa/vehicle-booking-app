@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  BrowserRouter, Router, Switch, Route, Link,
+  BrowserRouter, Switch, Route, Link,
 } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,8 +10,6 @@ import './App.css';
 
 import Login from './components/Login';
 import Register from './components/Register';
-import Home from './components/Home';
-import Profile from './components/Profile';
 import Vehicles from './components/Vehicles';
 import Details from './components/Details';
 import Bookings from './components/Bookings';
@@ -29,7 +27,7 @@ const App = () => {
 
   useEffect(() => {
     history.listen(location => {
-      dispatch(clearMessage()); // clear message when changing location
+      dispatch(clearMessage());
     });
   }, [dispatch]);
 
@@ -41,15 +39,11 @@ const App = () => {
     <BrowserRouter history={history}>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to="/" className="navbar-brand">
-            Vehicle Bookings
-          </Link>
+          <div className="navbar-brand">Vehicle Bookings</div>
           <div className="navbar-nav mr-auto">
             {user && (
               <li className="nav-item">
-                <Link to="/profile" className="nav-link">
-                  {user.username}
-                </Link>
+                <div className="nav-link">{user.username}</div>
               </li>
             )}
           </div>
@@ -57,9 +51,7 @@ const App = () => {
           {user ? (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to="/profile" className="nav-link">
-                  {user.username}
-                </Link>
+                <div className="nav-link">{user.username}</div>
               </li>
               <li className="nav-item">
                 <Link to="/bookings" className="nav-link">
@@ -92,10 +84,9 @@ const App = () => {
 
         <div className="container mt-3">
           <Switch>
-            <Route exact path={['/', '/home']} component={Home} />
+            <Route exact path={['/', '/login']} component={Login} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
             <Route exact path="/vehicle" component={Vehicles} />
             <Route exact path="/bookings" component={Bookings} />
             <Route exact path="/book" component={Book} />

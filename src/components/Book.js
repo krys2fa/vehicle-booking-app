@@ -76,19 +76,10 @@ const Book = ({ location }) => {
     if (checkBtn.current.context._errors.length === 0) {
       dispatch(bookVehicle(name, model, city, date, id));
       history.push('/bookings');
-      // .then(() => {
-      //   // console.log('hi');
-      //   // console.log('bookVehicle -> response.data', response);
-      // })
-      // .catch(() => {
-      //   setLoading(false);
-      // });
     } else {
       setLoading(false);
     }
   };
-
-  // };
 
   return (
     <div className="form-group">
@@ -133,8 +124,8 @@ const Book = ({ location }) => {
 
         <div className="form-group">
           <button className="btn btn-primary btn-block" disabled={loading}>
-            {loading && <span className="spinner-border spinner-border-sm" />}
             <span>Book</span>
+            {loading && <span className="spinner-border spinner-border-sm" />}
           </button>
         </div>
 
@@ -147,7 +138,6 @@ const Book = ({ location }) => {
         )}
 
         <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-        {/* <button type="submit">Book</button> */}
       </Form>
     </div>
   );

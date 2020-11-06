@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 import React, { useReducer, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
@@ -22,7 +23,6 @@ const Vehicles = () => {
       .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data });
       })
-      // eslint-disable-next-line no-unused-vars
       .catch(error => {
         dispatch({ type: FETCH_FAIL });
       });

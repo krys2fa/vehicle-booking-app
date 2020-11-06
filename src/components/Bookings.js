@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-array-index-key */
 import React, { useReducer, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -21,7 +22,6 @@ const Bookings = () => {
       .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data });
       })
-      // eslint-disable-next-line no-unused-vars
       .catch(error => {
         dispatch({ type: FETCH_FAIL });
       });

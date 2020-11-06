@@ -14,16 +14,12 @@ const bookVehicle = async (vehicle, model, city, date, id) => {
       user_id: id,
     },
     { headers: authHeader() },
-  ).then(response => { console.log(response); return response.data; });
+  ).then(response => response.data);
 };
 
 const getVehicles = () => axios.get(`${API_URL}vehicles`, { headers: authHeader() });
-const sampleApi = () => axios.get('https://jsonplaceholder.typicode.com/todos/', {
-  headers: authHeader(),
-});
 
 export default {
   getVehicles,
-  sampleApi,
   bookVehicle,
 };
