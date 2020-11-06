@@ -15,6 +15,7 @@ import Profile from './components/Profile';
 import Vehicles from './components/Vehicles';
 import Details from './components/Details';
 import Bookings from './components/Bookings';
+import Book from './components/Book';
 
 import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
@@ -65,7 +66,7 @@ const App = () => {
                   Bookings
                 </Link>
                 <Link to="/vehicle" className="nav-link">
-                  Vehicle
+                  Vehicles
                 </Link>
                 <Link to="/login" className="nav-link" onClick={logOut}>
                   LogOut
@@ -97,6 +98,7 @@ const App = () => {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/vehicle" component={Vehicles} />
             <Route exact path="/bookings" component={Bookings} />
+            <Route exact path="/book" component={Book} />
             <Route path="/vehicle/:id" component={Details} />
           </Switch>
         </div>

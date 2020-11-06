@@ -15,7 +15,7 @@ const Bookings = () => {
 
   useEffect(() => {
     axios
-      .get(`${apiUrl}appointments`, {
+      .post(`${apiUrl}appointments`, {
         headers: { Authorization: `Bearer ${user.token}` },
       })
       .then(response => {
@@ -64,6 +64,8 @@ const Bookings = () => {
             }
             return '';
           })}
+
+        {console.log('state', state) }
         {state.error ? state.error : null}
       </div>
     </div>

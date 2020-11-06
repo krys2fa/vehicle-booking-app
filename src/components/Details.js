@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useReducer } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { FETCH_FAIL, FETCH_SUCCESS } from '../actions/types';
 import { initialState, vehiclesReducer } from '../reducers/vehicles';
@@ -37,11 +37,15 @@ const Details = () => {
         : state.vehicles.map(vehicle => {
           if (vehicle.id === parseInt(id, 10)) {
             return (
-              <div>
+              <div key={vehicle.id}>
                 <div>{ vehicle.name }</div>
                 <div>{ vehicle.transmission }</div>
                 <div>{ vehicle.model }</div>
                 <div>{ vehicle.fee }</div>
+                <div>
+                  <Link to={{ pathname: '/book', state: { vehicle } }}>Book Now</Link>
+                  {' '}
+                </div>
               </div>
             );
           }
