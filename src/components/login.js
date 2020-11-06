@@ -1,11 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/button-has-type */
 /* eslint-disable consistent-return */
-/* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -24,6 +23,7 @@ const required = value => {
 };
 
 const Login = props => {
+  console.log('props', props);
   const form = useRef();
   const checkBtn = useRef();
 
@@ -31,10 +31,8 @@ const Login = props => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const { isLoggedIn } = useSelector(state => state.auth);
-  const { message } = useSelector(state => state.message);
-
   const dispatch = useDispatch();
+  const { message } = useSelector(state => state.message);
 
   const onChangeUsername = e => {
     const username = e.target.value;
@@ -57,7 +55,6 @@ const Login = props => {
       dispatch(login(username, password))
         .then(() => {
           props.history.push('/vehicle');
-          // window.location.reload();
         })
         .catch(() => {
           setLoading(false);
@@ -66,10 +63,6 @@ const Login = props => {
       setLoading(false);
     }
   };
-
-  if (isLoggedIn) {
-    return <Redirect to="/vehicle" />;
-  }
 
   return (
     <div className="col-md-12">

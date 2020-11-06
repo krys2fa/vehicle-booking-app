@@ -9,15 +9,15 @@ import {
 import BookService from '../services/user.service';
 
 export const bookVehicle = (name, model, city, date, id) => dispatch => BookService.bookVehicle(name, model, city, date, id).then(
-  response => {
+  () => {
     dispatch({
       type: POST_SUCCESS,
     });
 
-    dispatch({
-      type: SET_MESSAGE,
-      payload: response.data.statusText,
-    });
+    // dispatch({
+    //   type: SET_MESSAGE,
+    //   payload: response.data.statusText,
+    // });
 
     return Promise.resolve();
   },
