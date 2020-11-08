@@ -1,3 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  background-color: #1a83ff;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+/* .home {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size:
+} */
+
 label {
   display: block;
   margin-top: 10px;

@@ -19,6 +19,7 @@ import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
 
 import history from './helpers/history';
+import NavBar from './components/NavBar';
 
 const App = () => {
   const { user } = useSelector(state => state.auth);
@@ -38,54 +39,11 @@ const App = () => {
   return (
     <BrowserRouter history={history}>
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <div className="navbar-brand">Vehicle Bookings</div>
-          <div className="navbar-nav mr-auto">
-            {user && (
-              <li className="nav-item">
-                <div className="nav-link">{user.username}</div>
-              </li>
-            )}
-          </div>
-
-          {user ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <div className="nav-link">{user.username}</div>
-              </li>
-              <li className="nav-item">
-                <Link to="/bookings" className="nav-link">
-                  Bookings
-                </Link>
-                <Link to="/vehicle" className="nav-link">
-                  Vehicles
-                </Link>
-                <Link to="/login" className="nav-link" onClick={logOut}>
-                  LogOut
-                </Link>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to="/login" className="nav-link">
-                  Login
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <a href="/register" className="nav-link">
-                  Sign Up
-                </a>
-              </li>
-            </div>
-          )}
-        </nav>
-
+        <NavBar />
         <div className="container mt-3">
           <Switch>
             <Route exact path={['/', '/login']} component={Login} />
-            <Route exact path="/login" component={Login} />
+            {/* <Route exact path="/login" component={Login} /> */}
             <Route exact path="/register" component={Register} />
             <Route exact path="/vehicle" component={Vehicles} />
             <Route exact path="/bookings" component={Bookings} />
