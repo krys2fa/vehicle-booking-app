@@ -9,7 +9,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import './NavBar.css';
-import { logout } from '../actions/auth';
+import { logout } from '../../actions/auth';
 
 function NavBar() {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ function NavBar() {
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
+            <span className="logo">Vehicle Bookings</span>
           </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
@@ -40,8 +41,9 @@ function NavBar() {
 
             {user ? (
               <>
-                <li className="nav-item">
-                  <div className="nav-link">{user.username}</div>
+                <li className="profile">
+                  <FaIcons.FaUserCircle />
+                  <span>{user.user.username}</span>
                 </li>
                 <li className="nav-item">
                   <Link to="/bookings" className="nav-text">

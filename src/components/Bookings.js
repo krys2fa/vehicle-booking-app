@@ -37,8 +37,6 @@ const Bookings = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{user.user.username}</strong>
-          {' '}
           Bookings
         </h3>
       </header>
@@ -51,15 +49,23 @@ const Bookings = () => {
             console.log('user.user.id', typeof user.user.id);
             if (user.user.id === booking.user_id) {
               return (
-                <li key={booking.id}>
-                  {booking.date}
-                  {' '}
-                  {booking.city}
-                  {' '}
-                  {booking.model}
-                  {' '}
-                  {booking.vehicle}
-                </li>
+                <div className="card" key={booking.id}>
+                  <div className="card-header">{booking.date}</div>
+                  <div className="card-body">
+                    <p>
+                      City:
+                      <span>{booking.city}</span>
+                    </p>
+                    <p>
+                      Model:
+                      <span>{booking.model}</span>
+                    </p>
+                    <p>
+                      Vehicle:
+                      <span>{booking.vehicle}</span>
+                    </p>
+                  </div>
+                </div>
               );
             }
             return '';

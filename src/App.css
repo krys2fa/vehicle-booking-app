@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
+}
+
+h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
 }
 
 a {
@@ -18,13 +24,22 @@ a {
   text-decoration: none;
 }
 
-/* .home {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size:
-} */
+.profile {
+  color: #f5f5f5;
+  margin-left: 12px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-family: 'Cinzel', serif;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #f5f5f5;
+}
 
 label {
   display: block;

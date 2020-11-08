@@ -19,7 +19,7 @@ import { logout } from './actions/auth';
 import { clearMessage } from './actions/message';
 
 import history from './helpers/history';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
   const { user } = useSelector(state => state.auth);
