@@ -11,16 +11,6 @@ import CheckButton from 'react-validation/build/button';
 
 import { login } from '../actions/auth';
 
-const required = value => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
-
 const Login = props => {
   const form = useRef();
   const checkBtn = useRef();
@@ -28,6 +18,16 @@ const Login = props => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const required = value => {
+    if (!value) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          This field is required!
+        </div>
+      );
+    }
+  };
 
   const dispatch = useDispatch();
   const { message } = useSelector(state => state.message);
