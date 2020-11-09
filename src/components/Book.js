@@ -1,33 +1,26 @@
-/* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/prop-types */
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
-
+import PropTypes from 'prop-types';
 import { bookVehicle } from '../actions/bookVehicle';
 
 const Book = ({ location }) => {
   let vehicle = {};
-  console.log('Book -> location', location);
   if (typeof location.state === 'undefined') {
     vehicle = { name: '', model: '' };
   } else {
     vehicle = location.state.vehicle;
   }
-  console.log('vehicle', vehicle);
   const { user } = useSelector(state => state.auth);
   const { id } = user.user;
 
   localStorage.setItem('user', JSON.stringify(user));
-
-  const user2 = JSON.parse(localStorage.getItem('user'));
-  console.log('Book -> user2', user2);
 
   const form = useRef();
   const checkBtn = useRef();
@@ -135,7 +128,7 @@ const Book = ({ location }) => {
           />
 
           <div className="form-group">
-            <button className="btn btn-primary btn-block" disabled={loading}>
+            <button type="button" className="btn btn-primary btn-block" disabled={loading}>
               <span>Book</span>
               {loading && <span className="spinner-border spinner-border-sm" />}
             </button>
@@ -154,6 +147,17 @@ const Book = ({ location }) => {
       </div>
     </>
   );
+};
+
+Book.propTypes = {
+  location: PropTypes.shape({
+    path: PropTypes.string,
+    key: PropTypes.string,
+    hash: PropTypes.string,
+    state: PropTypes.shape({
+      vehicle: PropTypes.shape({}),
+    }),
+  }).isRequired,
 };
 
 export default Book;
