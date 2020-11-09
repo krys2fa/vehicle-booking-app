@@ -120,7 +120,7 @@ const Register = props => {
               </div>
 
               <div className="form-group">
-                <button type="button" className="btn btn-primary btn-block" disabled={successful}>
+                <button type="button" className="btn btn-success btn-block" disabled={successful}>
                   Sign Up
                   {successful && (
                     <span className="spinner-border spinner-border-sm" />

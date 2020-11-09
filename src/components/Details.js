@@ -54,7 +54,7 @@ const Details = () => {
                     <span>{vehicle.fee}</span>
                   </p>
                   <Link
-                    className="btn btn-primary"
+                    className="btn btn-success"
                     to={{ pathname: '/book', state: { vehicle } }}
                   >
                     Book Now

@@ -22,7 +22,7 @@ function NavBar() {
   const showSidebar = () => setSidebar(!sidebar);
   return (
     <div>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#060b26' }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
@@ -42,15 +42,15 @@ function NavBar() {
                 <li className="nav-item">
                   <Link to="/bookings" className="nav-text">
                     <FaIcons.FaBook />
-                    <span>Bookings</span>
+                    <span>BOOKINGS</span>
                   </Link>
                   <Link to="/vehicle" className="nav-text">
                     <AiIcons.AiFillCar />
-                    <span>Vehicles</span>
+                    <span>VEHICLES</span>
                   </Link>
                   <Link to="/login" className="nav-text" onClick={logOut}>
                     <AiIcons.AiOutlineLogout />
-                    <span>LogOut</span>
+                    <span>LOG OUT</span>
                   </Link>
                 </li>
               </>
@@ -59,18 +59,28 @@ function NavBar() {
                 <li className="nav-item">
                   <Link to="/login" className="nav-text">
                     <AiIcons.AiOutlineLogin />
-                    <span>Login</span>
+                    <span>LOG IN</span>
                   </Link>
                 </li>
 
                 <li className="nav-item">
                   <a href="/register" className="nav-text">
                     <FaIcons.FaFileContract />
-                    <span>Sign Up</span>
+                    <span>SIGN UP</span>
                   </a>
                 </li>
               </>
             )}
+            <li className="footer">
+              <span className="footer-icons">
+                <FaIcons.FaTwitter />
+                <FaIcons.FaFacebookF />
+                <FaIcons.FaGooglePlusG />
+                <FaIcons.FaVimeoV />
+                <FaIcons.FaPinterestP />
+              </span>
+              <span className="footer-text">&copy; 2020 All Rights Reserved</span>
+            </li>
           </ul>
         </nav>
       </IconContext.Provider>

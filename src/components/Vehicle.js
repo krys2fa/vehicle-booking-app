@@ -15,7 +15,7 @@ const Vehicle = ({ vehicle }) => {
       />
       <div className="card-body">
         <h4 className="card-title">{name}</h4>
-        <button type="button" className="btn btn-primary">
+        <button type="button" className="btn btn-success">
           See Details
         </button>
       </div>
