@@ -60,6 +60,8 @@ Kindly give this repository a ⭐️ if you like this project!
 
 - Project specifications by [Microverse](https://www.microverse.org) and can be found [here](https://www.notion.so/Final-Capstone-Project-Book-an-Appointment-41ded2ee99ff4fe4becf91acb332ca26).
 
+- [Design inspiration](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) is taken from [Murat Korkmaz](https://www.behance.net/muratk)
+
 ## 📝 License
 
 This project is licensed under the MIT License.
