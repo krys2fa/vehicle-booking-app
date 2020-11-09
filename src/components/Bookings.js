@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/no-array-index-key */
 import React, { useReducer, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -22,12 +20,10 @@ const Bookings = () => {
       .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data });
       })
-      .catch(error => {
+      .catch(() => {
         dispatch({ type: FETCH_FAIL });
       });
   }, []);
-
-  console.log('Profile -> user', user);
 
   if (user === null) {
     history.push('/login');
@@ -44,9 +40,6 @@ const Bookings = () => {
         {state.loading
           ? 'Loading'
           : state.bookings.map(booking => {
-            console.log('booking', booking);
-            console.log('booking.user_id', typeof booking.user_id);
-            console.log('user.user.id', typeof user.user.id);
             if (user.user.id === booking.user_id) {
               return (
                 <div className="card" key={booking.id}>
@@ -71,7 +64,6 @@ const Bookings = () => {
             return '';
           })}
 
-        {console.log('state', state) }
         {state.error ? state.error : null}
       </div>
     </div>
