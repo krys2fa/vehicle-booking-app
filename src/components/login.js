@@ -1,10 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/button-has-type */
 /* eslint-disable consistent-return */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -23,7 +22,6 @@ const required = value => {
 };
 
 const Login = props => {
-  console.log('props', props);
   const form = useRef();
   const checkBtn = useRef();
 
@@ -99,7 +97,7 @@ const Login = props => {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary btn-block" disabled={loading}>
+            <button type="button" className="btn btn-primary btn-block" disabled={loading}>
               <span>Login</span>
               {loading && <span className="spinner-border spinner-border-sm" />}
             </button>
@@ -117,6 +115,12 @@ const Login = props => {
       </div>
     </div>
   );
+};
+
+Login.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
+  location: PropTypes.shape({}).isRequired,
+  match: PropTypes.shape({}).isRequired,
 };
 
 export default Login;
