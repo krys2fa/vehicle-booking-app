@@ -51,6 +51,10 @@
   border-radius: 4px;
 }
 
+.nav-item a {
+  color: #060b26;
+}
+
 .nav-text a:hover {
   background-color: #30fc3a;
 }
@@ -70,8 +74,4 @@
 
 span {
   margin-left: 16px;
-}
-
-.nav-item a {
-  color: #060b26;
 }

@@ -87,7 +87,7 @@ label {
 .footer-icons {
   position: absolute;
   bottom: 0;
-  margin: 60px 0px;
+  margin: 60px 0;
   justify-content: space-between;
   align-items: center;
 }
@@ -97,11 +97,11 @@ label {
 }
 
 .footer-icons svg {
-  margin: 0px 15px;
+  margin: 0 15px;
 }
 
 .footer-text {
- position: absolute;
- bottom: 0;
- margin-bottom: 20px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
 }
