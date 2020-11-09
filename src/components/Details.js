@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useEffect, useReducer } from 'react';
@@ -37,14 +38,36 @@ const Details = () => {
         : state.vehicles.map(vehicle => {
           if (vehicle.id === parseInt(id, 10)) {
             return (
-              <div key={vehicle.id}>
-                <div>{ vehicle.name }</div>
-                <div>{ vehicle.transmission }</div>
-                <div>{ vehicle.model }</div>
-                <div>{ vehicle.fee }</div>
-                <div>
-                  <Link to={{ pathname: '/book', state: { vehicle } }}>Book Now</Link>
-                  {' '}
+              <div className="card" key={vehicle.id}>
+                <img
+                  className="card-img-top"
+                  src="https://cars.usnews.com/static/images/Auto/izmo/i44062349/2018_toyota_rav4_angularfront.jpg"
+                  alt="Card image"
+                />
+                <div className="card-body">
+                  <h4 className="card-title">{vehicle.name}</h4>
+                  <p className="card-text">
+                    Model:
+                    <span>{vehicle.model}</span>
+                  </p>
+                  <p className="card-text">
+                    Transmission:
+                    <span>{vehicle.transmission}</span>
+                  </p>
+                  <p className="card-text">
+                    Fee:
+                    <span>{vehicle.fee}</span>
+                  </p>
+                  <Link
+                    className="btn btn-primary"
+                    to={{ pathname: '/book', state: { vehicle } }}
+                  >
+                    Book Now
+                  </Link>
+
+                  {/* <a href="#" className="btn btn-primary">
+                    See Details
+                  </a> */}
                 </div>
               </div>
             );

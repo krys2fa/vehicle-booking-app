@@ -38,8 +38,6 @@ const Vehicles = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{user.user.username}</strong>
-          {' '}
           Vehicles
         </h3>
       </header>

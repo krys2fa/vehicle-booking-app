@@ -13,6 +13,12 @@ h3 {
   font-weight: bold;
 }
 
+h4.card-title,
+h4.card-title:hover {
+  text-decoration: none;
+  color: #000;
+}
+
 a {
   color: #f5f5f5;
   text-decoration: none;
