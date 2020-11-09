@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/no-array-index-key */
 import React, { useReducer, useEffect } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -23,12 +21,10 @@ const Vehicles = () => {
       .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data });
       })
-      .catch(error => {
+      .catch(() => {
         dispatch({ type: FETCH_FAIL });
       });
   }, []);
-
-  console.log('Profile -> user', user);
 
   if (user === null) {
     history.push('/login');
