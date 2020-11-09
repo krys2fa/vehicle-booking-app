@@ -14,11 +14,6 @@ export const bookVehicle = (name, model, city, date, id) => dispatch => BookServ
       type: POST_SUCCESS,
     });
 
-    // dispatch({
-    //   type: SET_MESSAGE,
-    //   payload: response.data.statusText,
-    // });
-
     return Promise.resolve();
   },
   error => {
