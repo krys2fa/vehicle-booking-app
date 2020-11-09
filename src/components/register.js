@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/button-has-type */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
@@ -43,6 +42,7 @@ const vpassword = value => {
 };
 
 const Register = props => {
+  console.log('props', props);
   const form = useRef();
   const checkBtn = useRef();
 
@@ -121,7 +121,7 @@ const Register = props => {
               </div>
 
               <div className="form-group">
-                <button className="btn btn-primary btn-block">Sign Up</button>
+                <button type="button" className="btn btn-primary btn-block">Sign Up</button>
               </div>
             </div>
           )}

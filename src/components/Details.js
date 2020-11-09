@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useEffect, useReducer } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
@@ -11,11 +8,9 @@ import { initialState, vehiclesReducer } from '../reducers/vehicles';
 const Details = () => {
   const params = useParams();
   const { id } = params;
-  console.log('Details -> props', id);
 
   const { user } = useSelector(state => state.auth);
   const [state, dispatch] = useReducer(vehiclesReducer, initialState);
-  console.log('Details -> state', state);
   const apiUrl = 'https://vehicle-booking-api.herokuapp.com/v1/';
 
   useEffect(() => {
@@ -26,7 +21,7 @@ const Details = () => {
       .then(response => {
         dispatch({ type: FETCH_SUCCESS, payload: response.data });
       })
-      .catch(error => {
+      .catch(() => {
         dispatch({ type: FETCH_FAIL });
       });
   }, []);
@@ -42,7 +37,7 @@ const Details = () => {
                 <img
                   className="card-img-top"
                   src={vehicle.photo}
-                  alt="Card image"
+                  alt=""
                 />
                 <div className="card-body">
                   <h4 className="card-title">{vehicle.name}</h4>
