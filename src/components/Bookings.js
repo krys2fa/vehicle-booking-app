@@ -37,7 +37,7 @@ const Bookings = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          Bookings
+          My Bookings
         </h3>
       </header>
       <div>

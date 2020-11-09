@@ -38,10 +38,10 @@ const Details = () => {
         : state.vehicles.map(vehicle => {
           if (vehicle.id === parseInt(id, 10)) {
             return (
-              <div className="card" key={vehicle.id}>
+              <div className="card width" key={vehicle.id}>
                 <img
                   className="card-img-top"
-                  src="https://cars.usnews.com/static/images/Auto/izmo/i44062349/2018_toyota_rav4_angularfront.jpg"
+                  src={vehicle.photo}
                   alt="Card image"
                 />
                 <div className="card-body">

@@ -1,5 +1,5 @@
  # Vehicle Booking App
-A front-end React application for booking vehicles. The data for the app is obtained from [a Rails API](https://github.com/krys2fa/vehicle-booking-api) using axios and stored in the Redux store to be accessed by multiple components.
+This is a tablet web application built with React for booking vehicles. The data for the app is obtained from [a Rails API](https://github.com/krys2fa/vehicle-booking-api) using axios and stored in the Redux store to be accessed by multiple components.
 This project was set up with [Create React App](https://github.com/facebook/create-react-app).
 
 # Screenshot
@@ -30,7 +30,7 @@ To get a local copy up and running follow these simple example steps.
 - React.
 
 ### Setup
-- Clone the repository by running in your `git clone https://github.com/krys2fa/tv-show-guide.git ` terminal/command line.
+- Clone the repository by running in your `git clone https://github.com/krys2fa/vehicle-booking-app.git` terminal/command line.
 - Run `npm install` to install dependencies.
 - Run `npm start` to start the development server.
 
@@ -58,7 +58,7 @@ Kindly give this repository a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Project specifications by [Microverse](https://www.microverse.org).
+- Project specifications by [Microverse](https://www.microverse.org) and can be found [here](https://www.notion.so/Final-Capstone-Project-Book-an-Appointment-41ded2ee99ff4fe4becf91acb332ca26).
 
 ## 📝 License
 

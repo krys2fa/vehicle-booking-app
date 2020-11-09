@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/style-prop-object */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -6,15 +7,15 @@ import PropTypes from 'prop-types';
 
 const Vehicle = ({ vehicle }) => {
   const {
-    name,
+    name, photo,
     // model, transmission, fee,
   } = vehicle;
 
   return (
-    <div className="card">
+    <div className="card width">
       <img
         className="card-img-top"
-        src="https://cars.usnews.com/static/images/Auto/izmo/i44062349/2018_toyota_rav4_angularfront.jpg"
+        src={photo}
         alt="Card image"
       />
       <div className="card-body">
