@@ -9,7 +9,7 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
-import { register, login } from '../actions/auth';
+import { register } from '../actions/auth';
 
 const required = value => {
   if (!value) {
@@ -73,13 +73,11 @@ const Register = props => {
       dispatch(register(username, password))
         .then(() => {
           setSuccessful(true);
+          props.history.push('/vehicle');
         })
         .catch(() => {
           setSuccessful(false);
         });
-      dispatch(login(username, password)).then(() => {
-        props.history.push('/vehicle');
-      });
     }
   };
 

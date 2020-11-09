@@ -6,13 +6,6 @@ const register = (username, password) => axios
   .post(`${API_URL}users`, {
     username,
     password,
-  })
-  .then(response => {
-    if (response.data.token) {
-      localStorage.setItem('user', JSON.stringify(response.data));
-    }
-
-    return response.data;
   });
 
 const login = (username, password) => axios
