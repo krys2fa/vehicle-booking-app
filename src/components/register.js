@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -42,7 +42,6 @@ const vpassword = value => {
 };
 
 const Register = props => {
-  console.log('props', props);
   const form = useRef();
   const checkBtn = useRef();
 
@@ -143,6 +142,12 @@ const Register = props => {
       </div>
     </div>
   );
+};
+
+Register.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func }).isRequired,
+  location: PropTypes.shape({}).isRequired,
+  match: PropTypes.shape({}).isRequired,
 };
 
 export default Register;
