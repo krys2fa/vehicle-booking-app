@@ -7,8 +7,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-import Login from './components/Login';
-import Register from './components/Register';
+import Login from './components/Login.js';
+import Register from './components/Register.js';
 import Vehicles from './components/Vehicles';
 import Details from './components/Details';
 import Bookings from './components/Bookings';
