@@ -8,8 +8,6 @@ const register = (username, password) => axios
     password,
   })
   .then(response => {
-    console.log('response service', response);
-    // before_action :authorized, only: [:auto_login]
     if (response.data.token) {
       localStorage.setItem('user', JSON.stringify(response.data));
     }
@@ -23,7 +21,6 @@ const login = (username, password) => axios
     password,
   })
   .then(response => {
-    console.log('response', response);
     if (response.data.token) {
       localStorage.setItem('user', JSON.stringify(response.data));
     }
