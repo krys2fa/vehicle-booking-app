@@ -18,6 +18,7 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",
     "no-shadow": "off",
+		"import/no-cycle": 2,
     "arrow-parens": ["error", "as-needed"]
   },
   "ignorePatterns": [
