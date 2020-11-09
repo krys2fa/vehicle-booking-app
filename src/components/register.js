@@ -101,6 +101,7 @@ const Register = props => {
                   type="text"
                   className="form-control"
                   name="username"
+                  autoComplete="username"
                   value={username}
                   onChange={onChangeUsername}
                   validations={[required, vusername]}
@@ -113,6 +114,7 @@ const Register = props => {
                   type="password"
                   className="form-control"
                   name="password"
+                  autoComplete="current-password"
                   value={password}
                   onChange={onChangePassword}
                   validations={[required, vpassword]}
@@ -120,7 +122,12 @@ const Register = props => {
               </div>
 
               <div className="form-group">
-                <button type="button" className="btn btn-primary btn-block">Sign Up</button>
+                <button type="button" className="btn btn-primary btn-block" disabled={successful}>
+                  Sign Up
+                  {successful && (
+                    <span className="spinner-border spinner-border-sm" />
+                  )}
+                </button>
               </div>
             </div>
           )}

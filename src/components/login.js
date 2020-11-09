@@ -78,6 +78,7 @@ const Login = props => {
               type="text"
               className="form-control"
               name="username"
+              autoComplete="username"
               value={username}
               onChange={onChangeUsername}
               validations={[required]}
@@ -90,6 +91,7 @@ const Login = props => {
               type="password"
               className="form-control"
               name="password"
+              autoComplete="current-password"
               value={password}
               onChange={onChangePassword}
               validations={[required]}
@@ -97,7 +99,11 @@ const Login = props => {
           </div>
 
           <div className="form-group">
-            <button type="button" className="btn btn-primary btn-block" disabled={loading}>
+            <button
+              type="button"
+              className="btn btn-primary btn-block"
+              disabled={loading}
+            >
               <span>Login</span>
               {loading && <span className="spinner-border spinner-border-sm" />}
             </button>
