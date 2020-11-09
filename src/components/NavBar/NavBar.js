@@ -39,10 +39,6 @@ function NavBar() {
 
             {user ? (
               <>
-                <li className="profile">
-                  <FaIcons.FaUserCircle />
-                  <span>{user.username}</span>
-                </li>
                 <li className="nav-item">
                   <Link to="/bookings" className="nav-text">
                     <FaIcons.FaBook />
