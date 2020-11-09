@@ -128,7 +128,7 @@ const Book = ({ location }) => {
           />
 
           <div className="form-group">
-            <button type="button" className="btn btn-primary btn-block" disabled={loading}>
+            <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
               <span>Book</span>
               {loading && <span className="spinner-border spinner-border-sm" />}
             </button>
