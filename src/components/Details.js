@@ -64,10 +64,6 @@ const Details = () => {
                   >
                     Book Now
                   </Link>
-
-                  {/* <a href="#" className="btn btn-primary">
-                    See Details
-                  </a> */}
                 </div>
               </div>
             );

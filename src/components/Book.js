@@ -13,7 +13,13 @@ import CheckButton from 'react-validation/build/button';
 import { bookVehicle } from '../actions/bookVehicle';
 
 const Book = ({ location }) => {
-  const { vehicle } = location.state;
+  let vehicle = {};
+  console.log('Book -> location', location);
+  if (typeof location.state === 'undefined') {
+    vehicle = { name: '', model: '' };
+  } else {
+    vehicle = location.state.vehicle;
+  }
   console.log('vehicle', vehicle);
   const { user } = useSelector(state => state.auth);
   const { id } = user.user;
@@ -82,64 +88,71 @@ const Book = ({ location }) => {
   };
 
   return (
-    <div className="form-group">
-      <Form onSubmit={handleSubmit} ref={form}>
-        <label htmlFor="vehicle">Vehicle</label>
-        <Input
-          type="text"
-          name="vehicle"
-          value={vehicle.name}
-          className="form-control"
-          onChange={onChangeName}
-          validations={[required]}
-        />
+    <>
+      <header className="jumbotron">
+        <h3>
+          Book A Vehicle
+        </h3>
+      </header>
+      <div className="form-group">
+        <Form onSubmit={handleSubmit} ref={form}>
+          <label htmlFor="vehicle">Vehicle</label>
+          <Input
+            type="text"
+            name="vehicle"
+            value={vehicle.name}
+            className="form-control"
+            onChange={onChangeName}
+            validations={[required]}
+          />
 
-        <label htmlFor="model">Model</label>
-        <Input
-          type="text"
-          name="model"
-          value={vehicle.model}
-          className="form-control"
-          onChange={onChangeModel}
-          validations={[required]}
-        />
+          <label htmlFor="model">Model</label>
+          <Input
+            type="text"
+            name="model"
+            value={vehicle.model}
+            className="form-control"
+            onChange={onChangeModel}
+            validations={[required]}
+          />
 
-        <label htmlFor="city">City</label>
-        <Input
-          type="text"
-          name="city"
-          className="form-control"
-          onChange={onChangeCity}
-          validations={[required]}
-        />
+          <label htmlFor="city">City</label>
+          <Input
+            type="text"
+            name="city"
+            className="form-control"
+            onChange={onChangeCity}
+            validations={[required]}
+          />
 
-        <label htmlFor="date">Date</label>
-        <Input
-          type="date"
-          name="date"
-          className="form-control"
-          onChange={onChangeDate}
-          validations={[required]}
-        />
+          <label htmlFor="date">Date</label>
+          <Input
+            type="date"
+            name="date"
+            className="form-control"
+            onChange={onChangeDate}
+            validations={[required]}
+          />
 
-        <div className="form-group">
-          <button className="btn btn-primary btn-block" disabled={loading}>
-            <span>Book</span>
-            {loading && <span className="spinner-border spinner-border-sm" />}
-          </button>
-        </div>
+          <div className="form-group">
+            <button className="btn btn-primary btn-block" disabled={loading}>
+              <span>Book</span>
+              {loading && <span className="spinner-border spinner-border-sm" />}
+            </button>
+          </div>
 
-        {message && (
+          {message && (
           <div className="form-group">
             <div className="alert alert-danger" role="alert">
               {message}
             </div>
           </div>
-        )}
+          )}
 
-        <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-      </Form>
-    </div>
+          <CheckButton style={{ display: 'none' }} ref={checkBtn} />
+        </Form>
+      </div>
+    </>
   );
 };
 
