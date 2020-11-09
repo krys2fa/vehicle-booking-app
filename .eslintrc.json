@@ -18,11 +18,11 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "import/no-unresolved": "off",
     "no-shadow": "off",
+    "import/no-cycle": "off",
     "arrow-parens": ["error", "as-needed"]
   },
   "ignorePatterns": [
     "dist/",
-    "build/",
-    "node_modules/"
+    "build/"
   ]
 }
