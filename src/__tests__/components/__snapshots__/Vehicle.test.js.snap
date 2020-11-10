@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the Card component correctly 1`] = `
+exports[`renders the Vehicle component correctly 1`] = `
 <DocumentFragment>
   <div
     class="card width"
@@ -18,7 +18,7 @@ exports[`renders the Card component correctly 1`] = `
         Daewoo Lemans
       </h4>
       <button
-        class="btn btn-primary"
+        class="btn btn-success"
         type="button"
       >
         See Details

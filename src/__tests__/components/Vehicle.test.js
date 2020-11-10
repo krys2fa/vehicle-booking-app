@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Vehicle from '../../components/Vehicle';
 
-it('renders the Card component correctly', () => {
+it('renders the Vehicle component correctly', () => {
   const vehicle = {
     name: 'Daewoo Lemans',
     transmission: 'Manual',

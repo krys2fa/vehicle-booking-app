@@ -42,6 +42,7 @@ const vpassword = value => {
 };
 
 const Register = props => {
+  console.log('props', props);
   const form = useRef();
   const checkBtn = useRef();
 
@@ -63,6 +64,7 @@ const Register = props => {
   };
 
   const handleRegister = e => {
+    console.log('come on');
     e.preventDefault();
 
     setSuccessful(false);
@@ -70,9 +72,11 @@ const Register = props => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      console.log('hellow');
       dispatch(register(username, password))
-        .then(() => {
+        .then(response => {
           setSuccessful(true);
+          console.log('response', response);
           props.history.push('/vehicle');
         })
         .catch(() => {
