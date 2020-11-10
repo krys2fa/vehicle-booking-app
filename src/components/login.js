@@ -10,6 +10,7 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
 import { login } from '../actions/auth';
+import { SET_MESSAGE } from '../actions/types';
 
 const Login = props => {
   const form = useRef();
@@ -51,8 +52,20 @@ const Login = props => {
 
     if (checkBtn.current.context._errors.length === 0) {
       dispatch(login(username, password))
-        .then(() => {
-          props.history.push('/vehicle');
+        .then(response => {
+          if ('error' in response) {
+            dispatch({
+              type: SET_MESSAGE,
+              payload: response.error,
+            });
+            setLoading(false);
+          } else {
+            dispatch({
+              type: SET_MESSAGE,
+              payload: '',
+            });
+            props.history.push('/vehicle');
+          }
         })
         .catch(() => {
           setLoading(false);

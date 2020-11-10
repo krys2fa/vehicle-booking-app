@@ -10,6 +10,7 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 
 import { register } from '../actions/auth';
+import { SET_MESSAGE } from '../actions/types';
 
 const required = value => {
   if (!value) {
@@ -42,13 +43,11 @@ const vpassword = value => {
 };
 
 const Register = props => {
-  console.log('props', props);
   const form = useRef();
   const checkBtn = useRef();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [successful, setSuccessful] = useState(false);
 
   const { message } = useSelector(state => state.message);
   const dispatch = useDispatch();
@@ -64,23 +63,26 @@ const Register = props => {
   };
 
   const handleRegister = e => {
-    console.log('come on');
     e.preventDefault();
-
-    setSuccessful(false);
 
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      console.log('hellow');
       dispatch(register(username, password))
         .then(response => {
-          setSuccessful(true);
-          console.log('response', response);
-          props.history.push('/vehicle');
+          if ('user' in response) {
+            dispatch({
+              type: SET_MESSAGE,
+              payload: '',
+            });
+            props.history.push('/vehicle');
+          }
         })
-        .catch(() => {
-          setSuccessful(false);
+        .catch(error => {
+          dispatch({
+            type: SET_MESSAGE,
+            payload: error,
+          });
         });
     }
   };
@@ -95,7 +97,7 @@ const Register = props => {
         />
 
         <Form onSubmit={handleRegister} ref={form}>
-          {!successful && (
+          {(
             <div>
               <div className="form-group">
                 <label htmlFor="username">Username</label>
@@ -103,7 +105,6 @@ const Register = props => {
                   type="text"
                   className="form-control"
                   name="username"
-                  autoComplete="username"
                   value={username}
                   onChange={onChangeUsername}
                   validations={[required, vusername]}
@@ -116,7 +117,6 @@ const Register = props => {
                   type="password"
                   className="form-control"
                   name="password"
-                  autoComplete="current-password"
                   value={password}
                   onChange={onChangePassword}
                   validations={[required, vpassword]}
@@ -124,12 +124,7 @@ const Register = props => {
               </div>
 
               <div className="form-group">
-                <button type="button" className="btn btn-success btn-block" disabled={successful}>
-                  Sign Up
-                  {successful && (
-                    <span className="spinner-border spinner-border-sm" />
-                  )}
-                </button>
+                <button type="submit" className="btn btn-success btn-block">Sign Up</button>
               </div>
             </div>
           )}
@@ -137,9 +132,7 @@ const Register = props => {
           {message && (
             <div className="form-group">
               <div
-                className={
-                  successful ? 'alert alert-success' : 'alert alert-danger'
-                }
+                className="alert alert-danger"
                 role="alert"
               >
                 {message}
@@ -152,6 +145,7 @@ const Register = props => {
     </div>
   );
 };
+
 
 Register.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
