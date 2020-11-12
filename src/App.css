@@ -1,38 +1,107 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h4.card-title,
+h4.card-title:hover {
+  text-decoration: none;
+  color: #000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.width {
+  width: 600px;
+}
+
+.nav-item a:hover {
+  background-color: #1f9939;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.profile {
+  color: #f5f5f5;
+  margin-left: 12px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  text-decoration: none;
+  color: #060b26;
+  font-family: 'Cinzel', serif;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: #060b26;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+.card-container.card {
+  max-width: 350px !important;
+  padding: 40px 40px;
+}
+
+.card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  margin-top: 50px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.footer-icons {
+  position: absolute;
+  bottom: 0;
+  margin: 60px 0;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.footer {
+  display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footer-icons svg {
+  margin: 0 15px;
+}
+
+.footer-text {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
 }

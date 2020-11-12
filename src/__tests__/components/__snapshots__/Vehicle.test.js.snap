@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Vehicle component correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="card width"
+  >
+    <img
+      alt=""
+      class="card-img-top"
+    />
+    <div
+      class="card-body"
+    >
+      <h4
+        class="card-title"
+      >
+        Daewoo Lemans
+      </h4>
+      <button
+        class="btn btn-success"
+        type="button"
+      >
+        See Details
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
